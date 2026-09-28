@@ -1,9 +1,9 @@
 from fastapi import APIRouter,Depends,HTTPException
 from pydantic import BaseModel,Field
-from sqlalchemy import select
+from sqlalchemy import func,select
 from sqlalchemy.orm import Session
 from ..db.database import get_db
-from ..db.models import Question,QuestionOption
+from ..db.models import Chapter,Question,QuestionOption,QuestionUsage
 from ..services.content import validate_content
 router=APIRouter(prefix="/api/questions",tags=["questions"])
 class OptionIn(BaseModel):
@@ -26,9 +26,11 @@ def next_code(db):
 @router.get("")
 def list_questions(db:Session=Depends(get_db)):
     out=[]
-    for q in db.scalars(select(Question).where(Question.is_active==True).order_by(Question.id.desc())).all():
+    usage_counts=dict(db.execute(select(QuestionUsage.question_id,func.count(QuestionUsage.id)).group_by(QuestionUsage.question_id)).all())
+    rows=db.execute(select(Question,Chapter.code,Chapter.name).outerjoin(Chapter,Question.chapter_id==Chapter.id).where(Question.is_active==True).order_by(Question.id.desc())).all()
+    for q,chapter_code,chapter_name in rows:
         opts=list(db.scalars(select(QuestionOption).where(QuestionOption.question_id==q.id).order_by(QuestionOption.display_order)).all())
-        out.append({"id":q.id,"question_code":q.question_code,"chapter_id":q.chapter_id,"difficulty_id":q.difficulty_id,"content":q.content,"explanation_content":q.explanation_content,"is_priority":q.is_priority,"options":[{"key":o.option_key,"content":o.content,"is_correct":o.is_correct} for o in opts]})
+        out.append({"id":q.id,"question_code":q.question_code,"chapter_id":q.chapter_id,"chapter_code":chapter_code,"chapter_name":chapter_name,"difficulty_id":q.difficulty_id,"content":q.content,"explanation_content":q.explanation_content,"is_priority":q.is_priority,"usage_count":usage_counts.get(q.id,0),"options":[{"key":o.option_key,"content":o.content,"is_correct":o.is_correct} for o in opts]})
     return out
 
 @router.post("")
