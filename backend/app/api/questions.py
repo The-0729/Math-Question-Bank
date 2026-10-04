@@ -30,7 +30,7 @@ def list_questions(db:Session=Depends(get_db)):
     rows=db.execute(select(Question,Chapter.code,Chapter.name).outerjoin(Chapter,Question.chapter_id==Chapter.id).where(Question.is_active==True).order_by(Question.id.desc())).all()
     for q,chapter_code,chapter_name in rows:
         opts=list(db.scalars(select(QuestionOption).where(QuestionOption.question_id==q.id).order_by(QuestionOption.display_order)).all())
-        out.append({"id":q.id,"question_code":q.question_code,"chapter_id":q.chapter_id,"chapter_code":chapter_code,"chapter_name":chapter_name,"difficulty_id":q.difficulty_id,"content":q.content,"explanation_content":q.explanation_content,"is_priority":q.is_priority,"usage_count":usage_counts.get(q.id,0),"options":[{"key":o.option_key,"content":o.content,"is_correct":o.is_correct} for o in opts]})
+        out.append({"id":q.id,"question_code":q.question_code,"chapter_id":q.chapter_id,"chapter_code":chapter_code,"chapter_name":chapter_name,"difficulty_id":q.difficulty_id,"content":q.content,"explanation_content":q.explanation_content,"is_priority":q.is_priority,"created_at":q.created_at,"updated_at":q.updated_at or q.created_at,"usage_count":usage_counts.get(q.id,0),"options":[{"key":o.option_key,"content":o.content,"is_correct":o.is_correct} for o in opts]})
     return out
 
 @router.post("")

@@ -192,6 +192,12 @@ export function libreOfficeMathToTex(source: string): string {
     return convertTokens(tokenize(source));
 }
 
+export function asInlineFormula(source: string): string {
+    const value = source.trim();
+    if (!value || value.includes("{{") || value.includes("[[")) return value;
+    return `{{${value}}}`;
+}
+
 function findLibreOfficeEnd(source: string, start: number): number {
     let depth = 0;
     let quoted = false;

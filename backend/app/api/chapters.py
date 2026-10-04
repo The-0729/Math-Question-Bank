@@ -1,9 +1,9 @@
 from fastapi import APIRouter,Depends,HTTPException
 from pydantic import BaseModel,Field
-from sqlalchemy import select
+from sqlalchemy import func,select
 from sqlalchemy.orm import Session
 from ..db.database import get_db
-from ..db.models import Chapter
+from ..db.models import Chapter,Question
 router=APIRouter(prefix="/api/chapters",tags=["chapters"])
 class ChapterIn(BaseModel):
     code:str
@@ -22,3 +22,12 @@ def update_chapter(chapter_id:int,p:ChapterIn,db:Session=Depends(get_db)):
     if not c or not c.is_active: raise HTTPException(404,"Không tìm thấy chương.")
     c.code=p.code;c.name=p.name;c.display_order=p.display_order;db.commit()
     return {"id":c.id,"code":c.code,"name":c.name,"display_order":c.display_order}
+@router.delete("/{chapter_id}")
+def delete_chapter(chapter_id:int,db:Session=Depends(get_db)):
+    c=db.get(Chapter,chapter_id)
+    if not c or not c.is_active: raise HTTPException(404,"Không tìm thấy chương.")
+    linked_questions=db.scalar(select(func.count(Question.id)).where(Question.chapter_id==chapter_id)) or 0
+    if linked_questions:
+        raise HTTPException(409,f"Không thể xóa chương {c.code} vì còn {linked_questions} câu hỏi liên kết. Hãy chuyển câu hỏi sang chương khác trước.")
+    c.is_active=False;db.commit()
+    return {"ok":True}

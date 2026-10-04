@@ -134,6 +134,7 @@ main{width:calc(100% - 244px);max-width:none;min-width:0;padding:30px clamp(20px
 .chapterRowName{display:grid;flex:1;gap:4px;min-width:0}
 .chapterRowName>b{color:#287df0;font-size:10px}
 .chapterRowName>small{overflow:hidden;color:#53657a;font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+.chapterRowActions{display:flex;align-items:center;gap:6px;flex:0 0 auto}
 .chapterRow .tableAction{margin:0}
 .preferencePanel{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .preferencePanel h3{margin:0;color:#26394d;font-size:14px}
@@ -175,3 +176,109 @@ button:focus-visible,summary:focus-visible{outline:3px solid #8dbbfa;outline-off
 .questionPagination button{min-height:34px;padding:7px 11px;font-size:11px}
 .densityOptions button{min-height:56px;padding:11px 13px;font-size:11px}
 @media(max-width:760px){.pageTitle .ghostButton,.pageTitle .primary{min-height:38px}.examArchiveItem>.dangerTextButton{min-height:34px;padding:6px 9px}}
+
+.formPanel:has(>.priorityField){display:grid;grid-template-columns:minmax(230px,1fr) minmax(160px,.7fr) minmax(235px,max-content);gap:12px 16px;align-items:start}
+.formPanel:has(>.priorityField)>label{margin:0}
+.formPanel>label.priorityField:has(input[type="checkbox"]){position:relative;display:flex;align-items:center;gap:10px;max-width:none;height:62px;margin:0;padding:23px 12px 7px;border:1px solid #e2e8ef;border-radius:7px;background:#f8fafc;color:#58687a;white-space:nowrap}
+.formPanel>label.priorityField::before{position:absolute;top:7px;left:12px;color:#596a7e;content:"Ưu tiên";font-size:12px;font-weight:400}
+.formPanel>.priorityField input{flex:0 0 18px;width:18px;height:18px;margin:0;accent-color:#d9951d}
+.formPanel>.questionContentField,.formPanel>.preview,.formPanel>.answerFormulaHint,.formPanel>.optionsGrid,.formPanel:has(>.priorityField)>label:nth-child(9){grid-column:1/-1}
+.formPanel>.questionContentField{position:relative}
+.formPanel>.questionContentField textarea{margin-bottom:4px}
+.markerButton{min-height:32px;padding:5px 9px;border:1px solid #d7e5f5;border-radius:6px;background:#f1f7ff;color:#286ab6;font-size:10px}
+.markerButton:hover{border-color:#9dc4fa;background:#e8f2ff}
+.answerFormulaHint{margin:0 0 -6px}
+.statIcon,.quickIcon,.databaseIcon,.archiveMark{display:grid;place-items:center;width:36px;height:36px;flex:0 0 36px;border-radius:9px;font-size:16px;font-weight:700}
+.statCard.blue .statIcon,.quickIcon.blueBg,.databaseIcon,.archiveMark{background:#eaf2ff;color:#287df0}
+.statCard.green .statIcon,.quickIcon.greenBg{background:#e6f7ef;color:#168557}
+.statCard.orange .statIcon,.quickIcon.orangeBg{background:#fff3df;color:#b77813}
+.statCard.purple .statIcon{background:#f0edff;color:#6d5bc0}
+.statCard .statIcon{font-size:0;color:transparent!important}
+.statCard.blue .statIcon::before{content:"🧮";color:initial;font-size:20px}
+.statCard.green .statIcon::before{content:"📚";color:initial;font-size:20px}
+.statCard.orange .statIcon::before{content:"⭐";color:initial;font-size:20px}
+.statCard.purple .statIcon::before{content:"📊";color:initial;font-size:20px}
+.optionsGrid .answerOptionField{display:grid;gap:8px;min-width:0;margin:0;padding:10px;border:1px solid #e1e7ef;border-radius:8px;background:#fff;color:#34465a}
+.answerOptionHeading{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700}
+.formPanel .optionsGrid .answerOptionHeading{width:100%;max-width:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit;cursor:default}
+.correctChoice{display:flex;align-items:center;gap:6px;color:#718096;font-size:10px;font-weight:600;white-space:nowrap}
+.correctChoice input{width:16px;height:16px;margin:0;accent-color:#168557}
+.optionsGrid .answerOptionField.correctOption{border-color:#2ba66d;background:#f1fbf5;box-shadow:inset 0 0 0 1px #2ba66d}
+.correctOption .correctChoice{color:#168557}
+.modifiedAt{display:block;min-width:112px;color:#77869a;font-size:10px;line-height:1.45;white-space:nowrap}
+.themeSwitch{display:flex;align-items:center;gap:10px;min-width:108px;padding:8px 12px;border:1px solid #dbe4ee;border-radius:7px;background:#f8fafc;color:#344a61}
+.themeSwitchTrack{display:flex;align-items:center;width:36px;height:20px;padding:3px;border-radius:99px;background:#bbc6d2;transition:background-color .18s ease}
+.themeSwitchTrack i{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .18s ease}
+.themeSwitch[aria-checked="true"] .themeSwitchTrack{background:#27845e}
+.themeSwitch[aria-checked="true"] .themeSwitchTrack i{transform:translateX(16px)}
+@media(max-width:900px){.formPanel:has(>.priorityField){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.formPanel>.priorityField{grid-column:1/-1}}
+@media(max-width:760px){.formPanel:has(>.priorityField){grid-template-columns:minmax(0,1fr)}.formPanel:has(>.priorityField)>*{grid-column:1/-1}}
+
+html[data-theme="dark"]{color-scheme:dark;background:#151a20;color:#e7ebef}
+html[data-theme="dark"] body{background:#151a20;color:#e7ebef}
+html[data-theme="dark"] main{color:#e7ebef}
+html[data-theme="dark"] .pageTitle h2,html[data-theme="dark"] .panelHeading h3,html[data-theme="dark"] .databaseCard b,html[data-theme="dark"] .databaseBarRow>div:first-child>b,html[data-theme="dark"] .chapterRowName>small,html[data-theme="dark"] .archiveMain>b,html[data-theme="dark"] .preferencePanel h3{color:#e7ebef}
+html[data-theme="dark"] .pageTitle p,html[data-theme="dark"] .preferencePanel p,html[data-theme="dark"] .databaseCard small,html[data-theme="dark"] .panelHeading span{color:#a6b1bc}
+html[data-theme="dark"] .formPanel,html[data-theme="dark"] .tableWrap,html[data-theme="dark"] .questionToolbar,html[data-theme="dark"] .statCard,html[data-theme="dark"] .chartPanel,html[data-theme="dark"] .quickPanel,html[data-theme="dark"] .tipPanel,html[data-theme="dark"] .databaseCard,html[data-theme="dark"] .databasePanel,html[data-theme="dark"] .examSetupPanel,html[data-theme="dark"] .preflightPanel,html[data-theme="dark"] .generatedExam,html[data-theme="dark"] .chapterForm,html[data-theme="dark"] .chapterTablePanel,html[data-theme="dark"] .preferencePanel,html[data-theme="dark"] .examArchiveItem{border-color:#35414c;background:#20272f;color:#e0e6eb}
+html[data-theme="dark"] input:not([type="checkbox"]),html[data-theme="dark"] select,html[data-theme="dark"] textarea{border-color:#414d59;background:#171d24;color:#e7ebef}
+html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder{color:#87939f}
+html[data-theme="dark"] .tableWrap th{background:#252e37;color:#aeb8c2}
+html[data-theme="dark"] .tableWrap td{border-color:#35414c;color:#dce2e7}
+html[data-theme="dark"] .questionTable tbody tr:hover{background:#252e37}
+html[data-theme="dark"] .questionContent,html[data-theme="dark"] .examQuestionContent{color:#e0e6eb}
+html[data-theme="dark"] .answerList>div,html[data-theme="dark"] .examOptions>span,html[data-theme="dark"] .answerFormulaPreview,html[data-theme="dark"] .chapterChoice,html[data-theme="dark"] .chapterSearch{border-color:#35414c;background:#252e37;color:#d5dde4}
+html[data-theme="dark"] .chapterChoice.selected{border-color:#5285bd;background:#26384b}
+html[data-theme="dark"] .chapterChoice small,html[data-theme="dark"] .chapterSearch input{color:#d5dde4}
+html[data-theme="dark"] .priorityField{border-color:#705b32;background:#332d20;color:#f1d18f}
+html[data-theme="dark"] .markerButton,html[data-theme="dark"] .ghostButton,html[data-theme="dark"] .themeSwitch{border-color:#3c5268;background:#263545;color:#c8def3}
+html[data-theme="dark"] .densityOptions button{border-color:#414d59;background:#20272f;color:#e0e6eb}
+html[data-theme="dark"] .databaseBarRow>div:first-child,html[data-theme="dark"] .chapterRowName>small,html[data-theme="dark"] .archiveMain>small,html[data-theme="dark"] .archiveChapters{color:#aab5c0}
+html[data-theme="dark"] .chapterOrder{background:#303943;color:#d1d9e0}
+html[data-theme="dark"] .chapterRow{border-color:#35414c}
+html[data-theme="dark"] .searchCount,html[data-theme="dark"] .priorityFilter,html[data-theme="dark"] label{color:#bdc7d0}
+html[data-theme="dark"] .questionSearch{border-color:#414d59;color:#aab5c0}
+html[data-theme="dark"] .questionPagination{color:#aab5c0}
+html[data-theme="dark"] .preflightTable th{background:#252e37;color:#aeb8c2}
+html[data-theme="dark"] .dashHeader h2,html[data-theme="dark"] .statCard b,html[data-theme="dark"] .legend b,html[data-theme="dark"] .tipPanel h3,html[data-theme="dark"] .quickActions b{color:#e7ebef}
+html[data-theme="dark"] .dashHeader p,html[data-theme="dark"] .statCard span,html[data-theme="dark"] .statCard small,html[data-theme="dark"] .legend>div,html[data-theme="dark"] .tipPanel p,html[data-theme="dark"] .quickActions small,html[data-theme="dark"] .barRow>div:first-child{color:#aeb8c2}
+html[data-theme="dark"] .quickActions button{border-color:#35414c;background:#252e37;color:#e0e6eb}
+html[data-theme="dark"] .quickActions button:hover{border-color:#54789c;background:#2b3946}
+html[data-theme="dark"] .barRow b,html[data-theme="dark"] .donut b{color:#e7ebef}
+html[data-theme="dark"] .barTrack{background:#38434e}
+html[data-theme="dark"] .donut>div{background:#20272f}
+html[data-theme="dark"] .miniBadge{background:#26384b;color:#bcd8f3!important}
+html[data-theme="dark"] .examPaper .examq{border-color:#35414c;background:#20272f;color:#dce2e7}
+html[data-theme="dark"] .emptyState,html[data-theme="dark"] .databaseEmpty{color:#aab5c0}
+html[data-theme="dark"] .formPanel>label.priorityField:has(input[type="checkbox"]){border-color:#705b32;background:#332d20;color:#f1d18f}
+html[data-theme="dark"] .formPanel>label.priorityField::before{color:#bdc7d0}
+html[data-theme="dark"] .optionsGrid .answerOptionField{border-color:#414d59;background:#252e37;color:#e0e6eb}
+html[data-theme="dark"] .optionsGrid .answerOptionField.correctOption{border-color:#39b77e;background:#20372e;box-shadow:inset 0 0 0 1px #39b77e}
+html[data-theme="dark"] .correctChoice{color:#aab5c0}
+html[data-theme="dark"] .correctOption .correctChoice{color:#73d3a1}
+html[data-theme="dark"] .modifiedAt{color:#aeb8c2}
+html[data-theme="dark"] .formPanel>label.priorityField:has(input[type="checkbox"]){border-color:#3c5268;background:#263545;color:#d5dde4}
+html[data-theme="dark"] .formPanel>label.priorityField::before{color:#d5dde4}
+html[data-theme="dark"] .examSetupPanel,html[data-theme="dark"] .preflightPanel,html[data-theme="dark"] .generatedExam,html[data-theme="dark"] .chapterForm,html[data-theme="dark"] .chapterTablePanel,html[data-theme="dark"] .databasePanel,html[data-theme="dark"] .preferencePanel{color:#e0e6eb}
+html[data-theme="dark"] .chapterRowName small,html[data-theme="dark"] .chapterForm label,html[data-theme="dark"] .quotaFields label,html[data-theme="dark"] .examNameField,html[data-theme="dark"] .examArchiveList,html[data-theme="dark"] .preflightLoading{color:#bdc7d0}
+html[data-theme="dark"] .preflightTable td{border-color:#35414c;color:#dce2e7}
+html[data-theme="dark"] .availabilityTrack{background:#38434e}
+html[data-theme="dark"] .examOptions>span,html[data-theme="dark"] .answerList>div{color:#dce2e7}
+html[data-theme="dark"] .chapterRowName>b,html[data-theme="dark"] .databaseChapterCode{color:#8abcf0}
+html[data-theme="dark"] .priorityBadge{border-color:#705b32;background:#332d20;color:#f1d18f}
+html[data-theme="dark"] .normalBadge{color:#aab5c0}
+html[data-theme="dark"] .preview,html[data-theme="dark"] .panel{border-color:#35414c;background:#252e37;color:#e0e6eb}
+html[data-theme="dark"] .preview b,html[data-theme="dark"] .preview>div:last-child{color:#e0e6eb}
+html[data-theme="dark"] .formulaHint{color:#aeb8c2}
+html[data-theme="dark"] .explanationText{border-color:#3d8a68;background:#20372e;color:#c9e5d6}
+html[data-theme="dark"] .answerFormulaPreview{background:#252e37;color:#e0e6eb}
+html[data-theme="dark"] .tableWrap table{background:#20272f}
+html[data-theme="dark"] .tableWrap tbody tr{background:#20272f}
+html[data-theme="dark"] .tableWrap tbody tr:hover{background:#252e37}
+html[data-theme="dark"] .chapterChoice b{color:#8abcf0}
+html[data-theme="dark"] .archiveCount{color:#e7ebef}
+html[data-theme="dark"] .archiveCount>small{color:#aeb8c2}
+html[data-theme="dark"] .archiveArrow{color:#8abcf0}
+html[data-theme="dark"] .preflightStatus.ready{background:#20372e;color:#73d3a1}
+html[data-theme="dark"] .preflightStatus.needsQuestions{background:#332d20;color:#f1d18f}
+html[data-theme="dark"] .dangerTextButton,html[data-theme="dark"] .dangerAction{border-color:#70434a;background:#38272b;color:#f0aab1}
+html[data-theme="dark"] .dangerTextButton:hover,html[data-theme="dark"] .dangerAction:hover{border-color:#a75b66;background:#472d32}

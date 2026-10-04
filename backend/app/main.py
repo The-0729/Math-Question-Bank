@@ -10,6 +10,10 @@ from .api.inspector import router as inspector_router
 app=FastAPI(title="Math Question Bank V0.1")
 app.add_middleware(CORSMiddleware,allow_origins=["http://localhost:5173"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 Base.metadata.create_all(bind=engine)
+with engine.begin() as connection:
+    question_columns={row[1] for row in connection.exec_driver_sql("PRAGMA table_info(questions)")}
+    if "updated_at" not in question_columns:
+        connection.exec_driver_sql("ALTER TABLE questions ADD COLUMN updated_at DATETIME")
 db=SessionLocal()
 if not db.scalar(select(Difficulty).where(Difficulty.id==1)):
     db.add_all([Difficulty(id=1,code="EASY",name="Easy",display_order=1),Difficulty(id=2,code="MEDIUM",name="Medium",display_order=2),Difficulty(id=3,code="HARD",name="Hard",display_order=3)]);db.commit()
