@@ -28,6 +28,7 @@ class Question(Base):
     content: Mapped[str]=mapped_column(Text,nullable=False)
     explanation_content: Mapped[str|None]=mapped_column(Text)
     is_priority: Mapped[bool]=mapped_column(Boolean,default=False)
+    answers_confirmed: Mapped[bool]=mapped_column(Boolean,default=False,nullable=False)
     is_active: Mapped[bool]=mapped_column(Boolean,default=True)
     created_at: Mapped[datetime]=mapped_column(DateTime,default=datetime.utcnow)
     updated_at: Mapped[datetime]=mapped_column(DateTime,default=datetime.utcnow,onupdate=datetime.utcnow)

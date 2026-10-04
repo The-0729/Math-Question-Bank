@@ -14,6 +14,8 @@ with engine.begin() as connection:
     question_columns={row[1] for row in connection.exec_driver_sql("PRAGMA table_info(questions)")}
     if "updated_at" not in question_columns:
         connection.exec_driver_sql("ALTER TABLE questions ADD COLUMN updated_at DATETIME")
+    if "answers_confirmed" not in question_columns:
+        connection.exec_driver_sql("ALTER TABLE questions ADD COLUMN answers_confirmed BOOLEAN NOT NULL DEFAULT 0")
 db=SessionLocal()
 if not db.scalar(select(Difficulty).where(Difficulty.id==1)):
     db.add_all([Difficulty(id=1,code="EASY",name="Easy",display_order=1),Difficulty(id=2,code="MEDIUM",name="Medium",display_order=2),Difficulty(id=3,code="HARD",name="Hard",display_order=3)]);db.commit()
