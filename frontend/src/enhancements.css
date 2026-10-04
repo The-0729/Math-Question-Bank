@@ -152,3 +152,26 @@ main{width:calc(100% - 244px);max-width:none;min-width:0;padding:30px clamp(20px
 @media(max-width:1000px){.examSetupGrid,.chapterManagerGrid{grid-template-columns:1fr}.preferencePanel{align-items:flex-start;flex-direction:column}}
 @media(max-width:760px){.chapterPicker{grid-template-columns:1fr}.examPaper{grid-template-columns:1fr}.quotaFields{gap:7px}.quotaFields label{font-size:10px}.examArchiveItem{gap:9px;padding:12px}.examArchiveOpen{gap:9px}.archiveMain>small{white-space:normal}.archiveActions{align-items:flex-end;flex-direction:column;gap:5px}.densityOptions{width:100%}.densityOptions button{flex:1;min-width:0}}
 @media(max-width:420px){.quotaFields{grid-template-columns:1fr}.examArchiveItem{align-items:flex-start}.archiveCount{margin-left:auto}.archiveMark{flex-basis:32px;height:32px}}
+.mathFormula{display:inline-block;padding:0;background:transparent;color:inherit;vertical-align:middle}
+.mathFormula .katex{font-size:1.25em;color:inherit}
+.preview{overflow-x:auto}
+.preview>div:first-child{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.preview>div:last-child{font-size:15px;line-height:1.9}
+.formulaHint{color:#718096;font-size:10px;font-weight:400}
+.answerFormulaPreview{min-height:1.4em;max-width:100%;margin-top:5px;padding:5px 8px;overflow-x:auto;border-radius:5px;background:#f5f8fc;color:#35465c;font-size:13px;font-weight:400}
+.answerFormulaHint{grid-column:1/-1;margin:0 0 -8px}
+button{min-height:36px;padding:8px 12px;font-size:12px;font-weight:600;transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease}
+button:focus-visible,summary:focus-visible{outline:3px solid #8dbbfa;outline-offset:2px}
+.navItem{min-height:36px;font-size:12px}
+.groupTitle{min-height:36px;font-size:12px}
+.primary{min-height:40px;padding:9px 15px;font-size:12px}
+.ghostButton{min-height:36px;padding:8px 11px;border:1px solid #dce7f4;border-radius:6px;background:#f4f8fe;color:#2169bc;font-size:11px}
+.ghostButton:hover{border-color:#b4d0f1;background:#eaf3ff}
+.tableAction{min-height:34px;padding:7px 11px;border-radius:6px;font-size:11px;font-weight:600}
+.dangerAction{border:1px solid #f5d5d9}
+.dangerTextButton{min-height:36px;padding:8px 11px;border:1px solid #f1cbd0;border-radius:6px;background:#fff9fa;font-size:11px;font-weight:600}
+.dangerTextButton:hover{border-color:#eab4bc;background:#fff0f1}
+.examArchiveOpen{min-height:52px}
+.questionPagination button{min-height:34px;padding:7px 11px;font-size:11px}
+.densityOptions button{min-height:56px;padding:11px 13px;font-size:11px}
+@media(max-width:760px){.pageTitle .ghostButton,.pageTitle .primary{min-height:38px}.examArchiveItem>.dangerTextButton{min-height:34px;padding:6px 9px}}
