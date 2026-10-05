@@ -223,6 +223,22 @@ button:focus-visible,summary:focus-visible{outline:3px solid #8dbbfa;outline-off
 .answerConfirmationToggle small{margin-top:3px;color:#718096;font-size:10px;font-weight:400}
 .answerConfirmationState{color:#8b6b2f;font-size:10px;white-space:nowrap}
 .answerStatusChart{grid-column:1/-1}
+.formPanel:has(>.answerConfirmation){grid-template-columns:minmax(210px,.85fr) minmax(250px,1.15fr) max-content;align-items:stretch}
+.formPanel>.answerConfirmation{grid-column:1;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:9px 12px}
+.formPanel>.explanationField{grid-column:2;margin:0}
+.formPanel>.primary{grid-column:3;align-self:end;min-width:138px;margin:0}
+.answerConfirmationState{white-space:normal}
+.questionTable td .answerStatusBadge{max-width:100px;white-space:nowrap}
+.databaseGrid{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.databaseCard{min-height:68px;padding:10px 11px;gap:8px}
+.databaseIcon{width:32px;height:32px;flex-basis:32px}
+.databaseCard b{font-size:20px}
+.databaseCard small{font-size:9px;line-height:1.3}
+.databaseCharts{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.databasePanel{padding:15px}
+.databasePanel .panelHeading h3{font-size:13px}
+@media(max-width:1100px){.databaseGrid{grid-template-columns:repeat(5,minmax(0,1fr))}.databaseCharts{grid-template-columns:repeat(2,minmax(0,1fr))}.formPanel:has(>.answerConfirmation){grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}.formPanel>.answerConfirmation{grid-column:1}.formPanel>.explanationField{grid-column:2}.formPanel>.primary{grid-column:1/-1;justify-self:start}}
+@media(max-width:760px){.databaseGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.databaseCharts{grid-template-columns:1fr}.formPanel:has(>.answerConfirmation){grid-template-columns:1fr}.formPanel>.answerConfirmation,.formPanel>.explanationField,.formPanel>.primary{grid-column:1/-1}.formPanel>.answerConfirmation{flex-direction:row;align-items:center}}
 .themeSwitch{display:flex;align-items:center;gap:10px;min-width:108px;padding:8px 12px;border:1px solid #dbe4ee;border-radius:7px;background:#f8fafc;color:#344a61}
 .themeSwitchTrack{display:flex;align-items:center;width:36px;height:20px;padding:3px;border-radius:99px;background:#bbc6d2;transition:background-color .18s ease}
 .themeSwitchTrack i{width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:transform .18s ease}
@@ -307,3 +323,67 @@ html[data-theme="dark"] .preflightStatus.ready{background:#20372e;color:#73d3a1}
 html[data-theme="dark"] .preflightStatus.needsQuestions{background:#332d20;color:#f1d18f}
 html[data-theme="dark"] .dangerTextButton,html[data-theme="dark"] .dangerAction{border-color:#70434a;background:#38272b;color:#f0aab1}
 html[data-theme="dark"] .dangerTextButton:hover,html[data-theme="dark"] .dangerAction:hover{border-color:#a75b66;background:#472d32}
+
+.sideNav>.navGroup:nth-of-type(3){display:none}
+.sidebarThemeToggle{position:fixed;left:12px;bottom:12px;z-index:1000;box-shadow:0 4px 14px #0b152033}
+.examSetupGrid{gap:12px}
+.examSetupPanel,.preflightPanel,.generatedExam{padding:16px}
+.examSetupPanel .panelHeading{margin-bottom:10px}
+.chapterPicker{gap:6px;margin-top:10px}
+.chapterChoice{padding:8px;gap:8px}
+.chapterChoice small{margin-top:2px;line-height:1.35}
+.quotaPanel{gap:10px}
+.preflightPanel{margin-top:12px}
+.preflightTable th,.preflightTable td{padding:8px 10px}
+.examSession{margin-top:12px}
+.examModeTabs{display:flex;width:max-content;max-width:100%;gap:3px;margin-bottom:10px;padding:3px;border:1px solid #dce5ed;border-radius:7px;background:#f2f5f8}
+.examModeTabs button{min-height:32px;padding:6px 13px;border:0;border-radius:5px;background:transparent;color:#64748b;font-size:11px}
+.examModeTabs button.selected{background:#fff;color:#245b91;box-shadow:0 1px 3px #172b461c}
+.examPaper{gap:7px;margin-top:8px}
+.examPaper .examq{padding:11px;line-height:1.5}
+.examQuestionContent{margin:5px 0;font-size:11px}
+.examOptions{gap:5px}
+.examOptions>span{gap:5px;padding:6px;font-size:10px}
+.takeExam{display:grid;gap:10px;margin-top:8px}
+.takeExamHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 13px;border:1px solid #e5ebf1;border-radius:8px;background:#f8fafc}
+.takeExamHeader h3{margin:0;color:#26394d;font-size:14px}
+.takeExamHeader span,.examScore small{color:#748398;font-size:10px}
+.examScore{display:grid;justify-items:end;gap:2px}
+.examScore b{color:#168557;font-size:20px}
+.takeQuestion{min-width:0;padding:12px;border:1px solid #e5ebf1;border-radius:8px;background:#fff}
+.takeQuestionTitle{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#293a4d;font-size:12px}
+.takeOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.takeOptions label{display:flex;align-items:flex-start;gap:7px;min-width:0;margin:0;padding:8px;border:1px solid #e2e8ef;border-radius:6px;background:#fbfcfe;color:#36495d;cursor:pointer}
+.takeOptions label.selected{border-color:#72a4dc;background:#f0f6fd}
+.takeOptions input{flex:0 0 15px;width:15px;height:15px;margin:1px 0 0;accent-color:#287df0}
+.takeOptions label>span{display:flex;gap:6px;min-width:0;align-items:flex-start;font-size:11px}
+.takeOptions label>span>b{color:#287df0}
+.takeOptions label>span>small{color:#8793a1;font-size:10px}
+.noAnswerHint{display:block;margin:4px 0 8px;color:#9a6c1b;font-size:10px}
+.takeResult{flex:0 0 auto;padding:4px 7px;border-radius:5px;background:#f0f3f6;color:#59697a;font-size:10px;font-weight:700}
+.takeResult.correct{background:#e6f7ef;color:#168557}
+.takeResult.incorrect{background:#fff0f1;color:#bd4654}
+.takeResult.noAnswer{background:#fff4de;color:#9a6c1b}
+.submitExamButton{justify-self:start;min-width:130px}
+html[data-theme="dark"] .examSetupPanel,html[data-theme="dark"] .preflightPanel,html[data-theme="dark"] .generatedExam{border-color:#35414c;background:#20272f;color:#e0e6eb}
+html[data-theme="dark"] .examSetupPanel .panelHeading h3,html[data-theme="dark"] .preflightPanel .panelHeading h3,html[data-theme="dark"] .generatedExam .panelHeading h3{color:#e7ebef}
+html[data-theme="dark"] .examSetupPanel .panelHeading span,html[data-theme="dark"] .preflightPanel .panelHeading span,html[data-theme="dark"] .quotaFields label,html[data-theme="dark"] .examNameField{color:#c1cbd5}
+html[data-theme="dark"] .preflightTable{background:#20272f}
+html[data-theme="dark"] .preflightTable tbody tr{background:#20272f}
+html[data-theme="dark"] .preflightTable td{background:transparent;color:#dce2e7}
+html[data-theme="dark"] .examModeTabs{border-color:#35414c;background:#171d24}
+html[data-theme="dark"] .examModeTabs button{color:#aeb8c2}
+html[data-theme="dark"] .examModeTabs button.selected{background:#334352;color:#e4eef7;box-shadow:none}
+html[data-theme="dark"] .takeExamHeader,html[data-theme="dark"] .takeQuestion{border-color:#35414c;background:#20272f;color:#e0e6eb}
+html[data-theme="dark"] .takeExamHeader h3,html[data-theme="dark"] .takeQuestionTitle{color:#e7ebef}
+html[data-theme="dark"] .takeExamHeader span,html[data-theme="dark"] .examScore small{color:#aeb8c2}
+html[data-theme="dark"] .takeOptions label{border-color:#414d59;background:#252e37;color:#dce2e7}
+html[data-theme="dark"] .takeOptions label.selected{border-color:#5f8fbd;background:#293c4c}
+html[data-theme="dark"] .takeOptions label>span>b{color:#9bc9f4}
+html[data-theme="dark"] .takeOptions label>span>small{color:#aab5c0}
+html[data-theme="dark"] .noAnswerHint{color:#f1d18f}
+html[data-theme="dark"] .takeResult{background:#303943;color:#c1cbd5}
+html[data-theme="dark"] .takeResult.correct{background:#20372e;color:#73d3a1}
+html[data-theme="dark"] .takeResult.incorrect{background:#38272b;color:#f0aab1}
+html[data-theme="dark"] .takeResult.noAnswer{background:#332d20;color:#f1d18f}
+@media(max-width:760px){.takeOptions{grid-template-columns:1fr}.examPaper .examq{padding:10px}}
