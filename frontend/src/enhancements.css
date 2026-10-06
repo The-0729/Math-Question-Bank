@@ -387,3 +387,63 @@ html[data-theme="dark"] .takeResult.correct{background:#20372e;color:#73d3a1}
 html[data-theme="dark"] .takeResult.incorrect{background:#38272b;color:#f0aab1}
 html[data-theme="dark"] .takeResult.noAnswer{background:#332d20;color:#f1d18f}
 @media(max-width:760px){.takeOptions{grid-template-columns:1fr}.examPaper .examq{padding:10px}}
+.databaseCharts>.answerStatusChart{grid-column:auto}
+.sidebar{padding-bottom:68px}
+.sidebar .courseCard{display:none!important}
+.sidebar .courseCard{margin-bottom:54px}
+.sidebarThemeToggle{left:12px;bottom:12px}
+.formPanel:has(>.answerConfirmation){grid-template-columns:minmax(210px,.85fr) minmax(260px,1.1fr) minmax(220px,.9fr);align-items:stretch}
+.formPanel:has(>.answerConfirmation)>.questionContentField{grid-column:1/3}
+.formPanel:has(>.answerConfirmation)>.preview{grid-column:3/-1;grid-row:auto;align-self:stretch;min-width:0;max-height:210px;overflow:auto}
+.formPanel:has(>.answerConfirmation)>.answerConfirmation{grid-column:1;grid-row:auto;align-self:stretch}
+.formPanel:has(>.answerConfirmation)>.explanationField{grid-column:2/4;grid-row:span 2;align-self:stretch}
+.formPanel:has(>.answerConfirmation)>.explanationField textarea{min-height:88px}
+.formPanel:has(>.answerConfirmation)>.primary{grid-column:1;grid-row:auto;align-self:end;justify-self:start;min-width:145px}
+.databaseGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.databaseCard{min-height:64px;padding:9px 10px;gap:7px}
+.databaseIcon{width:30px;height:30px;flex-basis:30px}
+.databaseCard b{font-size:19px}
+.databaseCard small{font-size:9px;line-height:1.25}
+.databaseCharts{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.databasePanel{padding:13px}
+.databasePanel .databaseBarRow{margin:10px 0}
+@media(max-width:1050px){.databaseCharts{grid-template-columns:repeat(2,minmax(0,1fr))}.formPanel:has(>.answerConfirmation){grid-template-columns:minmax(200px,.8fr) minmax(260px,1.2fr)}.formPanel:has(>.answerConfirmation)>.questionContentField,.formPanel:has(>.answerConfirmation)>.preview{grid-column:1/-1}.formPanel:has(>.answerConfirmation)>.preview{grid-row:auto;max-height:180px}.formPanel:has(>.answerConfirmation)>.answerConfirmation{grid-column:1;grid-row:auto}.formPanel:has(>.answerConfirmation)>.explanationField{grid-column:2/-1;grid-row:span 2}.formPanel:has(>.answerConfirmation)>.primary{grid-column:1;grid-row:auto}}
+@media(max-width:760px){.sidebar{padding-bottom:10px}.sidebar .courseCard{margin-bottom:0}.databaseGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.databaseCharts{grid-template-columns:1fr}.formPanel:has(>.answerConfirmation){grid-template-columns:1fr}.formPanel:has(>.answerConfirmation)>*{grid-column:1/-1!important;grid-row:auto!important}.formPanel:has(>.answerConfirmation)>.preview{max-height:180px}.formPanel:has(>.answerConfirmation)>.answerConfirmation{flex-direction:row;align-items:center}.formPanel:has(>.answerConfirmation)>.primary{justify-self:start}.sidebarThemeToggle{left:12px;bottom:12px}}
+html[data-theme="dark"] .formPanel:has(>.answerConfirmation)>.preview{border-color:#35414c;background:#252e37}
+html[data-theme="dark"] .formPanel:has(>.answerConfirmation)>.preview .formulaHint{color:#b6c2cd}
+.formPanel:has(>.answerFooter)>.questionComposer{display:grid;grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField{grid-column:auto;display:flex;flex-direction:column;min-width:0;height:250px;margin:0}
+.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField textarea{flex:1;height:0;min-height:0;resize:none}
+.questionPreviewField,.explanationPreviewField{display:grid;grid-template-rows:auto minmax(0,1fr);gap:7px;min-width:0;min-height:0}
+.questionPreviewField{grid-template-rows:auto minmax(0,1fr) 27px;row-gap:5px}
+.questionPreviewField::after{grid-row:3;height:27px;content:""}
+.previewHeading .formulaHint:empty{display:none}
+.previewHeading{display:grid;gap:4px;margin:0;color:#34485b;font-size:11px;font-weight:700}
+.previewHeading .formulaHint{font-weight:400;line-height:1.4}
+.formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField{grid-column:auto;min-width:0;height:250px}
+.formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField>.preview{grid-column:auto;width:100%;height:100%;min-width:0;min-height:0;margin:0;padding:12px;overflow:auto;border:1px solid #e4e8ef;border-radius:8px;background:#fff;font-family:inherit;font-size:13px;line-height:1.5}
+.formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField>.preview>div:first-child{display:block;margin:0;padding:0;line-height:1.7}
+.formPanel:has(>.answerFooter)>.answerFormulaHint,.formPanel:has(>.answerFooter)>.optionsGrid{grid-column:1/-1}
+.formPanel:has(>.answerFooter)>.answerFooter{display:grid;grid-column:1/-1;grid-template-columns:minmax(145px,15fr) minmax(0,42.5fr) minmax(0,42.5fr);gap:12px;align-items:stretch}
+.answerActions{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;gap:10px;min-width:0}
+.answerActions .answerConfirmation{display:block;min-width:0;padding:9px}
+.answerActions .answerConfirmationToggle{align-items:flex-start!important;gap:7px!important}
+.answerActions .answerConfirmationToggle b{font-size:10px;line-height:1.35}
+.answerActions .answerConfirmationState{display:block;margin-top:5px;font-size:9px;line-height:1.3}
+.answerActions .primary{width:100%;min-width:0;min-height:38px;margin:0;padding:7px;font-size:10px;white-space:normal}
+.formPanel:has(>.answerFooter)>.answerFooter>.explanationField{display:flex;flex-direction:column;grid-column:auto;min-width:0;margin:0}
+.formPanel:has(>.answerFooter)>.answerFooter>.explanationField textarea{flex:1;min-height:105px;resize:vertical}
+.explanationPreview{display:grid;grid-template-rows:1fr;min-width:0;min-height:130px;margin:0;padding:10px;border:1px solid #e4e8ef;border-radius:8px;background:#f8fafc;color:#526477;font-size:11px}
+.explanationPreview .answerFormulaPreview{min-height:0;margin:0;overflow:auto}
+.sidebarThemeToggle{left:12px;bottom:12px;min-width:0;min-height:32px;height:32px;gap:7px;padding:4px 8px;font-size:10px;box-shadow:0 3px 10px #0b152033}
+.sidebarThemeToggle .themeSwitchTrack{width:30px;height:18px}
+.sidebarThemeToggle .themeSwitchTrack i{width:12px;height:12px}
+.sidebarThemeToggle[aria-checked="true"] .themeSwitchTrack i{transform:translateX(12px)}
+html[data-theme="dark"] .previewHeading{color:#d5dde4}
+html[data-theme="dark"] .formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField>.preview,html[data-theme="dark"] .explanationPreview{border-color:#35414c;background:#252e37;color:#d5dde4}
+html[data-theme="dark"] .formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField>.preview>div:first-child{color:#e0e6eb}
+@media(max-width:1000px){.formPanel:has(>.answerFooter)>.answerFooter{grid-template-columns:minmax(125px,1fr) minmax(0,2fr);gap:10px}.formPanel:has(>.answerFooter)>.answerFooter>.answerActions{grid-column:1}.formPanel:has(>.answerFooter)>.answerFooter>.explanationField{grid-column:2;grid-row:span 2}.formPanel:has(>.answerFooter)>.answerFooter>.explanationPreview{grid-column:2}.sidebar .courseCard{margin-bottom:62px}}
+@media(max-width:760px){.formPanel:has(>.answerFooter)>.questionComposer{grid-template-columns:1fr}.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField,.formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField{grid-column:1}.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField textarea{min-height:120px}.formPanel:has(>.answerFooter)>.answerFooter{grid-template-columns:1fr}.formPanel:has(>.answerFooter)>.answerFooter>*{grid-column:1!important;grid-row:auto!important}.formPanel:has(>.answerFooter)>.answerFooter>.answerActions{flex-direction:row;align-items:stretch}.formPanel:has(>.answerFooter)>.answerFooter>.answerActions>*{flex:1}.formPanel:has(>.answerFooter)>.answerFooter>.answerActions .primary{align-self:stretch}.sidebar .courseCard{margin-bottom:0}.sidebarThemeToggle{left:10px;bottom:10px}}
+@media(max-width:1050px){.databaseCharts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.databaseCharts{grid-template-columns:1fr}}
+@media(max-width:760px){.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField,.formPanel:has(>.answerFooter)>.questionComposer>.questionPreviewField{height:230px}.formPanel:has(>.answerFooter)>.questionComposer>.questionContentField textarea{min-height:0}}
